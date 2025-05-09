@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import About from './About';
+import { scrollToSection } from '../../utils/scroll';
 
 // Mock the scrollToSection utility
 jest.mock('../utils/scroll', () => ({
@@ -16,7 +17,6 @@ describe('About component', () => {
   });
 
   it('calls scrollToSection when button is clicked', () => {
-    const { scrollToSection } = require('../utils/scroll');
     render(<About />);
     const button = screen.getByRole('button', { name: /meet my assistant/i });
     fireEvent.click(button);

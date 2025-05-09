@@ -55,10 +55,9 @@ const Assistant = () => {
           className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-900 to-black text-white flex flex-col items-center justify-center px-6 py-20 text-center"
         >
           <div className="max-w-3xl">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Hello, I'm Jesse's AI assistant</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">{"Hello, I'm Jesse's AI assistant"}</h2>
             <p className="text-xl mb-8">
-              I've been designed to help you explore Jesse's work, get insights into his skills, and
-              discover how he thinks through problems; all through a simple conversation.
+              {"I've been designed to help you explore Jesse's work, get insights into his skills, and discover how he thinks through problems; all through a simple conversation."}
             </p>
             <motion.button
               onClick={() => setFlipped(true)}
@@ -66,7 +65,7 @@ const Assistant = () => {
               whileTap={{ scale: 0.95 }}
               className="inline-block px-8 py-4 text-lg bg-white text-black font-bold rounded-lg shadow-lg hover:bg-gray-800 hover:text-white transition cursor-pointer"
             >
-              Let's chat
+              {"Let's chat"}
             </motion.button>
           </div>
         </motion.section>

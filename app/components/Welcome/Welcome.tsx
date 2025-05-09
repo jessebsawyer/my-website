@@ -55,7 +55,7 @@ const Welcome = () => {
               transition={{ duration: 1 }}
               className="text-2xl md:text-3xl"
             >
-              I'm Jesse, a Senior Full Stack Developer.
+              {"I'm Jesse, a Senior Full Stack Developer."}
             </motion.p>
           )}
           {showArrow && (
