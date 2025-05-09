@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const isAnyVisible = entries.some(entry => entry.isIntersecting);
+        const isAnyVisible = entries.some((entry) => entry.isIntersecting);
         setIsDarkBg(isAnyVisible);
       },
       {
@@ -23,18 +23,15 @@ export default function Layout({ children }: LayoutProps) {
         threshold: 0.5,
       }
     );
-  
-    const sections = [
-      document.querySelector('#about'),
-      document.querySelector('#contact')
-    ];
-  
-    sections.forEach(section => {
+
+    const sections = [document.querySelector('#about'), document.querySelector('#contact')];
+
+    sections.forEach((section) => {
       if (section) observer.observe(section);
     });
-  
+
     return () => {
-      sections.forEach(section => {
+      sections.forEach((section) => {
         if (section) observer.unobserve(section);
       });
     };
@@ -93,7 +90,7 @@ export default function Layout({ children }: LayoutProps) {
                 e.preventDefault();
                 setMenuOpen(false);
                 setTimeout(() => {
-                  scrollToSection()
+                  scrollToSection();
                 }, 300);
               }}
               className="text-4xl md:text-5xl font-bold hover:underline text-white"

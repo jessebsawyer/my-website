@@ -11,7 +11,9 @@ describe('Assistant component', () => {
 
     // Flip to chat UI
     fireEvent.click(screen.getByRole('button', { name: /let's chat/i }));
-    expect(screen.getByRole('heading', { name: /start chatting with my ai assistant/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: /start chatting with my ai assistant/i })
+    ).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/type your message/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /send/i })).toBeInTheDocument();
   });

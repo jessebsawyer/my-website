@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Assistant = () => {
@@ -7,8 +7,9 @@ const Assistant = () => {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "Hi there! I'm Jesse's personal assistant. Ask me anything about his work, experience, or skills."
-    }
+      content:
+        "Hi there! I'm Jesse's personal assistant. Ask me anything about his work, experience, or skills.",
+    },
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -32,7 +33,10 @@ const Assistant = () => {
       setMessages([...newMessages, { role: 'assistant', content: data.reply }]);
     } catch (err) {
       console.error(err);
-      setMessages([...newMessages, { role: 'assistant', content: 'Something went wrong. Please try again.' }]);
+      setMessages([
+        ...newMessages,
+        { role: 'assistant', content: 'Something went wrong. Please try again.' },
+      ]);
     } finally {
       setLoading(false);
     }
@@ -53,7 +57,8 @@ const Assistant = () => {
           <div className="max-w-3xl">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Hello, I'm Jesse's AI assistant</h2>
             <p className="text-xl mb-8">
-              I've been designed to help you explore Jesse's work, get insights into his skills, and discover how he thinks through problems; all through a simple conversation.
+              I've been designed to help you explore Jesse's work, get insights into his skills, and
+              discover how he thinks through problems; all through a simple conversation.
             </p>
             <motion.button
               onClick={() => setFlipped(true)}
@@ -82,17 +87,13 @@ const Assistant = () => {
                 <div
                   key={i}
                   className={`text-left p-4 rounded-lg shadow text-sm ${
-                    msg.role === 'user'
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-800 text-gray-200'
+                    msg.role === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-200'
                   }`}
                 >
                   <strong>{msg.role === 'user' ? 'You' : 'AI'}:</strong> {msg.content}
                 </div>
               ))}
-              {loading && (
-                <div className="italic text-sm text-gray-400">AI is typing...</div>
-              )}
+              {loading && <div className="italic text-sm text-gray-400">AI is typing...</div>}
             </div>
             <textarea
               value={input}

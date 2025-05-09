@@ -10,9 +10,9 @@ export default function Home() {
       <Welcome />
 
       <About />
-      
+
       <Assistant />
-        
+
       <Contact />
     </div>
   );

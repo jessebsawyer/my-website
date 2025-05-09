@@ -8,7 +8,7 @@ module.exports = {
   //   '/out/'
   // ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/app/$1'
+    '^@/(.*)$': '<rootDir>/app/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   // transform: {

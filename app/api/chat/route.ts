@@ -26,11 +26,11 @@ export async function POST(req: NextRequest) {
 
 ${bio}
 
-Never answer unrelated questions. If the question isn’t about Jesse, politely say: "I'm only here to help you learn about Jesse and his work."`
+Never answer unrelated questions. If the question isn’t about Jesse, politely say: "I'm only here to help you learn about Jesse and his work."`,
         },
-        ...messages
+        ...messages,
       ],
-      temperature: 0.7
+      temperature: 0.7,
     });
 
     const reply = chatCompletion.choices[0].message.content;
@@ -38,6 +38,8 @@ Never answer unrelated questions. If the question isn’t about Jesse, politely 
     return NextResponse.json({ reply });
   } catch (err: any) {
     console.error('OpenAI error:', err?.response?.data || err.message || err);
-    return NextResponse.json({ reply: "I'm having trouble connecting to my brain right now 🤖. Please try again later." });
+    return NextResponse.json({
+      reply: "I'm having trouble connecting to my brain right now 🤖. Please try again later.",
+    });
   }
 }
