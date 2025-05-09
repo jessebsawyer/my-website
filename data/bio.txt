@@ -1,0 +1,17 @@
+Jesse Sawyer is a Senior Full Stack Developer based in Ontario, Canada, with 7+ years of experience building modern, scalable web and mobile applications.
+
+He specializes in:
+- Frontend: React, Next.js, Tailwind CSS, React Native
+- Backend: Node.js, Fastify, GraphQL, REST APIs
+- DevOps: Docker, GCP, CI/CD pipelines
+- Databases: PostgreSQL, MongoDB
+- Architecture: Monorepos, scalable service design, performance optimization
+
+Notable achievements:
+- Helped save $984k over 3 years by leading development of a business tracker at TELUS using Next.js and GraphQL
+- Built AI-powered plant health tools using image classification
+- Mentors junior and intermediate developers and leads onboarding initiatives
+
+He’s known for clean code, collaborative team culture, and solving hard problems with simple solutions. Jesse’s ideal role balances hands-on engineering with architectural input and team mentorship.
+
+Ask me anything about Jesse's work, skills, or projects.
