@@ -2,7 +2,7 @@
 import { useState, useEffect, ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { scrollToSection } from '../utils/scroll';
+import { scrollToSection } from '../../utils/scroll';
 
 interface LayoutProps {
   children: ReactNode;

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { scrollToSection } from '../utils/scroll';
+import { scrollToSection } from '../../utils/scroll';
 
 const About = () => {
     return (
