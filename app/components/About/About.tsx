@@ -10,7 +10,7 @@ const About = () => {
         id="about"
         className="min-h-screen bg-white text-black flex flex-col items-center justify-center px-6 py-20"
       >
-        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
           <motion.img
             src="/about.jpeg"
             alt="Jesse profile"
