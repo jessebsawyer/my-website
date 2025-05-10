@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Assistant = () => {
@@ -13,6 +13,15 @@ const Assistant = () => {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -30,15 +39,21 @@ const Assistant = () => {
       });
 
       const data = await res.json();
-      setMessages([...newMessages, { role: 'assistant', content: data.reply }]);
+      if (isMounted.current) {
+        setMessages([...newMessages, { role: 'assistant', content: data.reply }]);
+      }
     } catch (err) {
       console.error(err);
-      setMessages([
-        ...newMessages,
-        { role: 'assistant', content: 'Something went wrong. Please try again.' },
-      ]);
+      if (isMounted.current) {
+        setMessages([
+          ...newMessages,
+          { role: 'assistant', content: 'Something went wrong. Please try again.' },
+        ]);
+      }
     } finally {
-      setLoading(false);
+      if (isMounted.current) {
+        setLoading(false);
+      }
     }
   };
 

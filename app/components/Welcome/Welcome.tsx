@@ -59,16 +59,17 @@ const Welcome = () => {
             </motion.p>
           )}
           {showArrow && (
-            <motion.a
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="absolute bottom-6 animate-bounce cursor-pointer"
-            >
+<motion.a
+  aria-label="Scroll down"
+  onClick={(e) => {
+    e.preventDefault();
+    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+  }}
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="absolute bottom-6 animate-bounce cursor-pointer"
+>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

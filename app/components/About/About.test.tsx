@@ -3,8 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import About from './About';
 import { scrollToSection } from '../../utils/scroll';
 
-// Mock the scrollToSection utility
-jest.mock('../utils/scroll', () => ({
+ // Mock the scrollToSection utility
+jest.mock('../../utils/scroll', () => ({
   scrollToSection: jest.fn(),
 }));
 

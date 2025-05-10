@@ -62,6 +62,7 @@ export default function Layout({ children }: LayoutProps) {
           >
             {/* X Close Icon */}
             <button
+              aria-label="Close menu"
               onClick={(e) => {
                 e.stopPropagation();
                 setMenuOpen(false);

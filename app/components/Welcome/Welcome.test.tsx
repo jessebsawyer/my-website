@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { act } from 'react';
 import Welcome from './Welcome';
 
 describe('Welcome component', () => {
@@ -19,16 +20,22 @@ describe('Welcome component', () => {
     expect(screen.queryByText(/i'm jesse, a senior full stack developer/i)).not.toBeInTheDocument();
 
     // After 100ms: intro heading
-    jest.advanceTimersByTime(100);
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
     expect(screen.getByRole('heading', { name: /hey there!/i })).toBeInTheDocument();
 
     // After 1600ms: image and text
-    jest.advanceTimersByTime(1500);
+    act(() => {
+      jest.advanceTimersByTime(1500);
+    });
     expect(screen.getByRole('img', { name: /photo of jesse/i })).toBeInTheDocument();
     expect(screen.getByText(/i'm jesse, a senior full stack developer/i)).toBeInTheDocument();
 
     // After 2600ms: arrow
-    jest.advanceTimersByTime(1000);
-    expect(screen.getByRole('link')).toBeInTheDocument();
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+    expect(screen.getByLabelText(/scroll down/i)).toBeInTheDocument();
   });
 });

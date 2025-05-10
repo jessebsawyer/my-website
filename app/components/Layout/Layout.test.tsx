@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitForElementToBeRemoved } from '@testing-library/react';
 import Layout from './Layout';
 
 describe('Layout component', () => {
@@ -27,9 +27,11 @@ describe('Layout component', () => {
     expect(screen.getByRole('link', { name: /ai assistant/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /lets connect/i })).toBeInTheDocument();
     // Close button (X icon)
-    const closeButton = screen.getAllByRole('button')[0]; // The close button is rendered first in the modal
+    const closeButton = screen.getByRole('button', { name: /close menu/i });
     fireEvent.click(closeButton);
     // Modal should close (links disappear)
-    expect(screen.queryByRole('link', { name: /about me/i })).not.toBeInTheDocument();
+    return waitForElementToBeRemoved(() =>
+      screen.queryByRole('link', { name: /about me/i })
+    );
   });
 });

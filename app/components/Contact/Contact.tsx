@@ -118,12 +118,13 @@ const Contact = () => {
           </form>
           {/* Social Icons */}
           <div className="mt-10 flex justify-center gap-6">
-            <a
-              href="https://github.com/jessebsawyer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black hover:text-gray-700"
-            >
+<a
+  href="https://github.com/jessebsawyer"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-black hover:text-gray-700"
+  aria-label="GitHub"
+>
               <svg
                 className="w-8 h-8"
                 fill="currentColor"
@@ -137,12 +138,13 @@ const Contact = () => {
                 />
               </svg>
             </a>
-            <a
-              href="https://www.linkedin.com/in/jessebsawyer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black hover:text-gray-700"
-            >
+<a
+  href="https://www.linkedin.com/in/jessebsawyer"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-black hover:text-gray-700"
+  aria-label="LinkedIn"
+>
               <svg
                 className="w-8 h-8"
                 fill="currentColor"
