@@ -1,10 +1,10 @@
 export const scrollToSection = () => {
-  const assistantScreen = document.querySelector('#assistant');
-  const chatScreen = document.querySelector('#chat');
+  const assistantScreen = document.querySelector('#assistant')
+  const chatScreen = document.querySelector('#chat')
   if (assistantScreen) {
-    assistantScreen.scrollIntoView({ behavior: 'smooth' });
+    assistantScreen.scrollIntoView({ behavior: 'smooth' })
   } else if (chatScreen) {
-    chatScreen.scrollIntoView({ behavior: 'smooth' });
+    chatScreen.scrollIntoView({ behavior: 'smooth' })
   }
-  return;
-};
+  return
+}

@@ -1,43 +1,43 @@
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 type ContactFormData = {
-  name: string;
-  email: string;
-  subject?: string;
-  message: string;
-};
+  name: string
+  email: string
+  subject?: string
+  message: string
+}
 
 const Contact = () => {
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [loading, setLoading] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<ContactFormData>();
+  } = useForm<ContactFormData>()
 
   const onSubmit = async (data: ContactFormData) => {
-    setLoading(true);
+    setLoading(true)
     const res = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
-    });
+    })
 
-    const result = await res.json();
+    const result = await res.json()
     if (result.success) {
-      setStatus('success');
-      setTimeout(() => setStatus('idle'), 3000);
-      reset();
+      setStatus('success')
+      setTimeout(() => setStatus('idle'), 3000)
+      reset()
     } else {
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 3000)
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
   return (
     <>
       {/* Contact Section */}
@@ -118,13 +118,13 @@ const Contact = () => {
           </form>
           {/* Social Icons */}
           <div className="mt-10 flex justify-center gap-6">
-<a
-  href="https://github.com/jessebsawyer"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-black hover:text-gray-700"
-  aria-label="GitHub"
->
+            <a
+              href="https://github.com/jessebsawyer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:text-gray-700"
+              aria-label="GitHub"
+            >
               <svg
                 className="w-8 h-8"
                 fill="currentColor"
@@ -138,13 +138,13 @@ const Contact = () => {
                 />
               </svg>
             </a>
-<a
-  href="https://www.linkedin.com/in/jessebsawyer"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-black hover:text-gray-700"
-  aria-label="LinkedIn"
->
+            <a
+              href="https://www.linkedin.com/in/jessebsawyer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:text-gray-700"
+              aria-label="LinkedIn"
+            >
               <svg
                 className="w-8 h-8"
                 fill="currentColor"
@@ -158,7 +158,7 @@ const Contact = () => {
         </motion.div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

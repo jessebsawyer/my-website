@@ -1,61 +1,61 @@
-'use client';
-import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+'use client'
+import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const Assistant = () => {
-  const [flipped, setFlipped] = useState(false);
+  const [flipped, setFlipped] = useState(false)
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
       content:
         "Hi there! I'm Jesse's personal assistant. Ask me anything about his work, experience, or skills.",
     },
-  ]);
-  const [input, setInput] = useState('');
-  const [loading, setLoading] = useState(false);
+  ])
+  const [input, setInput] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const isMounted = useRef(true);
+  const isMounted = useRef(true)
 
   useEffect(() => {
-    isMounted.current = true;
+    isMounted.current = true
     return () => {
-      isMounted.current = false;
-    };
-  }, []);
+      isMounted.current = false
+    }
+  }, [])
 
   const sendMessage = async () => {
-    if (!input.trim()) return;
+    if (!input.trim()) return
 
-    const newMessages = [...messages, { role: 'user', content: input }];
-    setMessages(newMessages);
-    setInput('');
-    setLoading(true);
+    const newMessages = [...messages, { role: 'user', content: input }]
+    setMessages(newMessages)
+    setInput('')
+    setLoading(true)
 
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: newMessages }),
-      });
+      })
 
-      const data = await res.json();
+      const data = await res.json()
       if (isMounted.current) {
-        setMessages([...newMessages, { role: 'assistant', content: data.reply }]);
+        setMessages([...newMessages, { role: 'assistant', content: data.reply }])
       }
     } catch (err) {
-      console.error(err);
+      console.error(err)
       if (isMounted.current) {
         setMessages([
           ...newMessages,
           { role: 'assistant', content: 'Something went wrong. Please try again.' },
-        ]);
+        ])
       }
     } finally {
       if (isMounted.current) {
-        setLoading(false);
+        setLoading(false)
       }
     }
-  };
+  }
 
   return (
     <AnimatePresence mode="wait">
@@ -70,9 +70,13 @@ const Assistant = () => {
           className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-900 to-black text-white flex flex-col items-center justify-center px-6 py-20 text-center"
         >
           <div className="max-w-3xl">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">{"Hello, I'm Jesse's AI assistant"}</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              {"Hello, I'm Jesse's AI assistant"}
+            </h2>
             <p className="text-xl mb-8">
-              {"I've been designed to help you explore Jesse's work, get insights into his skills, and discover how he thinks through problems; all through a simple conversation."}
+              {
+                "I've been designed to help you explore Jesse's work, get insights into his skills, and discover how he thinks through problems; all through a simple conversation."
+              }
             </p>
             <motion.button
               onClick={() => setFlipped(true)}
@@ -114,8 +118,8 @@ const Assistant = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
-                  e.preventDefault();
-                  sendMessage();
+                  e.preventDefault()
+                  sendMessage()
                 }
               }}
               rows={4}
@@ -132,7 +136,7 @@ const Assistant = () => {
         </motion.section>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export default Assistant;
+export default Assistant

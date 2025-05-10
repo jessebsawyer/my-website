@@ -1,28 +1,28 @@
-'use client';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+'use client'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 const Welcome = () => {
-  const [showIntro, setShowIntro] = useState(false);
-  const [showArrow, setShowArrow] = useState(false);
-  const [showImage, setShowImage] = useState(false);
-  const [showText, setShowText] = useState(false);
+  const [showIntro, setShowIntro] = useState(false)
+  const [showArrow, setShowArrow] = useState(false)
+  const [showImage, setShowImage] = useState(false)
+  const [showText, setShowText] = useState(false)
 
   useEffect(() => {
-    const introTimer = setTimeout(() => setShowIntro(true), 100);
-    const imageTimer = setTimeout(() => setShowImage(true), 1600);
-    const textTimer = setTimeout(() => setShowText(true), 1600);
-    const arrowTimer = setTimeout(() => setShowArrow(true), 2600);
+    const introTimer = setTimeout(() => setShowIntro(true), 100)
+    const imageTimer = setTimeout(() => setShowImage(true), 1600)
+    const textTimer = setTimeout(() => setShowText(true), 1600)
+    const arrowTimer = setTimeout(() => setShowArrow(true), 2600)
     return () => {
-      clearTimeout(introTimer);
-      clearTimeout(imageTimer);
-      clearTimeout(textTimer);
-      clearTimeout(arrowTimer);
-    };
-  }, []);
+      clearTimeout(introTimer)
+      clearTimeout(imageTimer)
+      clearTimeout(textTimer)
+      clearTimeout(arrowTimer)
+    }
+  }, [])
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center justify-center text-center p-4 space-y-6 bg-gradient-to-br from-gray-700 via-gray-900 to-black text-white relative">
+      <div className="min-h-screen flex flex-col items-center justify-center text-center p-4 space-y-6 bg-gradient-to-br from-gray-700 via-gray-900 to-black text-white relative pb-16">
         <AnimatePresence>
           {showImage && (
             <motion.img
@@ -58,38 +58,40 @@ const Welcome = () => {
               {"I'm Jesse, a Senior Full Stack Developer."}
             </motion.p>
           )}
-          {showArrow && (
-<motion.a
-  aria-label="Scroll down"
-  onClick={(e) => {
-    e.preventDefault();
-    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
-  }}
-  initial={{ opacity: 0, y: 10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  className="absolute bottom-6 animate-bounce cursor-pointer"
->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-10 h-10 text-white hover:text-gray-300"
+          <div className="h-16 relative w-full flex justify-center items-end">
+            {showArrow && (
+              <motion.a
+                aria-label="Scroll down"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="animate-bounce cursor-pointer"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 8.25L12 15.75 4.5 8.25"
-                />
-              </svg>
-            </motion.a>
-          )}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-10 h-10 text-white hover:text-gray-300"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25L12 15.75 4.5 8.25"
+                  />
+                </svg>
+              </motion.a>
+            )}
+          </div>
         </AnimatePresence>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Welcome;
+export default Welcome

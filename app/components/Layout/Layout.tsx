@@ -1,41 +1,41 @@
-'use client';
-import { useState, useEffect, ReactNode } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import { scrollToSection } from '../../utils/scroll';
+'use client'
+import { useState, useEffect, ReactNode } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
+import { scrollToSection } from '../../utils/scroll'
 
 interface LayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isDarkBg, setIsDarkBg] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [isDarkBg, setIsDarkBg] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const isAnyVisible = entries.some((entry) => entry.isIntersecting);
-        setIsDarkBg(isAnyVisible);
+        const isAnyVisible = entries.some((entry) => entry.isIntersecting)
+        setIsDarkBg(isAnyVisible)
       },
       {
         root: null,
         threshold: 0.5,
       }
-    );
+    )
 
-    const sections = [document.querySelector('#about'), document.querySelector('#contact')];
+    const sections = [document.querySelector('#about'), document.querySelector('#contact')]
 
     sections.forEach((section) => {
-      if (section) observer.observe(section);
-    });
+      if (section) observer.observe(section)
+    })
 
     return () => {
       sections.forEach((section) => {
-        if (section) observer.unobserve(section);
-      });
-    };
-  }, []);
+        if (section) observer.unobserve(section)
+      })
+    }
+  }, [])
 
   return (
     <div className="relative scroll-smooth">
@@ -64,8 +64,8 @@ export default function Layout({ children }: LayoutProps) {
             <button
               aria-label="Close menu"
               onClick={(e) => {
-                e.stopPropagation();
-                setMenuOpen(false);
+                e.stopPropagation()
+                setMenuOpen(false)
               }}
               className="absolute top-4 right-4 z-50 p-2 text-white hover:text-gray-300 cursor-pointer $1"
             >
@@ -75,11 +75,11 @@ export default function Layout({ children }: LayoutProps) {
             <a
               href="#"
               onClick={(e) => {
-                e.preventDefault();
-                setMenuOpen(false);
+                e.preventDefault()
+                setMenuOpen(false)
                 setTimeout(() => {
-                  document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
-                }, 300);
+                  document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })
+                }, 300)
               }}
               className="text-4xl md:text-5xl font-bold hover:underline text-white"
             >
@@ -88,11 +88,11 @@ export default function Layout({ children }: LayoutProps) {
             <a
               href="#"
               onClick={(e) => {
-                e.preventDefault();
-                setMenuOpen(false);
+                e.preventDefault()
+                setMenuOpen(false)
                 setTimeout(() => {
-                  scrollToSection();
-                }, 300);
+                  scrollToSection()
+                }, 300)
               }}
               className="text-4xl md:text-5xl font-bold hover:underline text-white"
             >
@@ -101,11 +101,11 @@ export default function Layout({ children }: LayoutProps) {
             <a
               href="#"
               onClick={(e) => {
-                e.preventDefault();
-                setMenuOpen(false);
+                e.preventDefault()
+                setMenuOpen(false)
                 setTimeout(() => {
-                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-                }, 300);
+                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
+                }, 300)
               }}
               className="text-4xl md:text-5xl font-bold hover:underline text-white"
             >
@@ -118,5 +118,5 @@ export default function Layout({ children }: LayoutProps) {
       {/* Page Content */}
       <main className="relative z-10">{children}</main>
     </div>
-  );
+  )
 }
