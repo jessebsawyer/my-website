@@ -1,17 +1,16 @@
-Jesse Sawyer is a Senior Full Stack Developer based in Ontario, Canada, with 7+ years of experience building modern, scalable web and mobile applications.
+Jesse Sawyer is a Senior Full Stack Developer based in Ontario, Canada, with 6+ years of experience building modern, scalable web and mobile applications.
 
-He specializes in:
-- Frontend: React, Next.js, Tailwind CSS, React Native
-- Backend: Node.js, Fastify, GraphQL, REST APIs
-- DevOps: Docker, GCP, CI/CD pipelines
-- Databases: PostgreSQL, MongoDB
+He specializes in:  
+- Frontend: React, Next.js, Tailwind CSS, React Native  
+- Backend: Node.js, Fastify, GraphQL, REST APIs  
+- DevOps: Docker, Kubernetes, GCP, CI/CD pipelines  
+- Databases: PostgreSQL, MongoDB  
 - Architecture: Monorepos, scalable service design, performance optimization
 
-Notable achievements:
-- Helped save $984k over 3 years by leading development of a business tracker at TELUS using Next.js and GraphQL
-- Built AI-powered plant health tools using image classification
+Notable achievements:  
+- Helped save TELUS over $1 million across three years by developing multiple business applications using Next.js, Fastify, and GraphQL.
 - Mentors junior and intermediate developers and leads onboarding initiatives
 
-He’s known for clean code, collaborative team culture, and solving hard problems with simple solutions. Jesse’s ideal role balances hands-on engineering with architectural input and team mentorship.
+Jesse is known for writing clean, maintainable code and fostering a collaborative team culture. As a self-taught developer, he brings a strong sense of initiative, relentless curiosity, and a proven ability to learn and adapt quickly. He’s also highly communicative, solutions-oriented, and deeply invested in team success. His ideal role balances hands-on engineering with architectural input, cross-functional collaboration, and team mentorship.
 
-Ask me anything about Jesse's work, skills, or projects.
+Ask me anything about Jesse's work, skills, or projects—and don’t hold back. I’m here to convince you why Jesse would be an outstanding addition to your team. 😉

@@ -1,21 +1,21 @@
-import { NextRequest, NextResponse } from 'next/server';
-import OpenAI from 'openai';
+import { NextRequest, NextResponse } from 'next/server'
+import OpenAI from 'openai'
 
-import fs from 'fs/promises';
-import path from 'path';
+import fs from 'fs/promises'
+import path from 'path'
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
 
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json();
+    const { messages } = await req.json()
 
     if (!Array.isArray(messages) || !messages.length) {
-      return NextResponse.json({ error: 'Invalid messages array' }, { status: 400 });
+      return NextResponse.json({ error: 'Invalid messages array' }, { status: 400 })
     }
 
-    const bioPath = path.join(process.cwd(), 'data/bio.txt');
-    const bio = await fs.readFile(bioPath, 'utf-8');
+    const bioPath = path.join(process.cwd(), 'data/bio.txt')
+    const bio = await fs.readFile(bioPath, 'utf-8')
 
     const chatCompletion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
@@ -31,15 +31,15 @@ Never answer unrelated questions. If the question isn’t about Jesse, politely 
         ...messages,
       ],
       temperature: 0.7,
-    });
+    })
 
-    const reply = chatCompletion.choices[0].message.content;
+    const reply = chatCompletion.choices[0].message.content
 
-    return NextResponse.json({ reply });
+    return NextResponse.json({ reply })
   } catch (err: any) {
-    console.error('OpenAI error:', err?.response?.data || err.message || err);
+    console.error('OpenAI error:', err?.response?.data || err.message || err)
     return NextResponse.json({
       reply: "I'm having trouble connecting to my brain right now 🤖. Please try again later.",
-    });
+    })
   }
 }
